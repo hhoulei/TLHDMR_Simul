@@ -1,5 +1,4 @@
 
-################### 减少IV个数 ###############################
 
 library(R.utils)
 library(data.table)
@@ -423,6 +422,7 @@ for(i in 1:length(Ancesname)){
 names(fdata_NK.Listall) <- names(fdata_NK1.Listall) <- Ancesname
 
 save(fdata_NK.Listall,fdata_NK1.Listall,file='code41.fdata_NK1all_top.Rdata')
+
 
 
 
