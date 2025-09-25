@@ -45,7 +45,7 @@ snp_num <- lapply(SNP_sig, function(x) nrow(x))
 snp_num <- unlist(snp_num)
 dt1$snp_num <- snp_num
 
-# #### 每个种族分开找SNP，每个性状选top 10 snp ######
+
 ################# South Asian ##########################
 SA.loc <- dt1$ancestry=='South Asian'
 dt2 <- dt1[SA.loc,]
@@ -72,7 +72,7 @@ summary(dt2$snp_num)
 # }
 # save(SNP_top10_SA,file='code21.SNP_top10_SA.Rdata')
 
-## 看看这top10的SNP哪几个在所有的数据库中都存在
+
 load('code21.SNP_top10_SA.Rdata')
 SNP_top10_uni <- lapply(SNP_top10_SA,function(x) x$rsid)
 SNP_top10_uni <- unique(unlist(SNP_top10_uni)) #9780
@@ -93,7 +93,7 @@ SNP_top10_uni <- unique(unlist(SNP_top10_uni)) #9780
 # }
 # save(SNP_top10dt_SA,file='code21.SNP_top10dt_SA.Rdata')
 
-## 加一步，看看这top10的SNP哪几个在结局的数据库中都存在
+
 # load('code21.SNP_top10dt_SA.Rdata')
 # outdt1 <- read.csv('dt_out_stroke.csv')
 # unique(outdt1$ancestry)
@@ -117,7 +117,7 @@ SNP_top10_uni <- unique(unlist(SNP_top10_uni)) #9780
 # save(SNP_top10dt_SA_out,file='code21.SNP_top10dt_SA_stroke.Rdata')
 
 
-## 统计频率，看看哪些SNP在所有数据库中都有
+
 load('code21.SNP_top10dt_SA_stroke.Rdata')
 
 snpal1 <- lapply(SNP_top10dt_SA_out, function(x) unique(x$rsid))
@@ -171,7 +171,7 @@ SA.loc <- dt1$ancestry=='African unspecified'
 dt2 <- dt1[SA.loc,]
 summary(dt2$snp_num)
 
-## 899个性状找top10个的SNP
+
 SNP_top10_AFR <- list()
 
 for(i in 1:nrow(dt2)){
@@ -192,7 +192,7 @@ for(i in 1:nrow(dt2)){
 }
 save(SNP_top10_AFR,file='code21.SNP_top10_AFR.Rdata')
 
-## 看看这top10的SNP哪几个在所有的数据库中都存在
+
 #load('code21.SNP_top10_AFR.Rdata')
 SNP_top10_uni <- lapply(SNP_top10_AFR,function(x) x$rsid)
 SNP_top10_uni <- unique(unlist(SNP_top10_uni)) #15173
@@ -213,7 +213,7 @@ for(i in 1:nrow(dt2)){
 }
 save(SNP_top10dt_AFR,file='code21.SNP_top10dt_AFR.Rdata')
 
-## 加一步，看看这top10的SNP哪几个在结局的数据库中都存在
+
 #load('code21.SNP_top10dt_AFR.Rdata')
 outdt1 <- read.csv('dt_out_stroke.csv')
 unique(outdt1$ancestry)
@@ -237,7 +237,7 @@ for(i in 1:nrow(outdt1)){
 save(SNP_top10dt_AFR_out,file='code21.SNP_top10dt_AFR_stroke.Rdata')
 
 
-## 统计频率，看看哪些SNP在所有数据库中都有
+
 #load('code21.SNP_top10dt_AFR_stroke.Rdata')
 
 snpal1 <- lapply(SNP_top10dt_AFR_out, function(x) unique(x$rsid))
@@ -291,7 +291,7 @@ SA.loc <- dt1$ancestry=='East Asian'
 dt2 <- dt1[SA.loc,]
 summary(dt2$snp_num)
 
-## 899个性状找top10个的SNP
+
 SNP_top10_EA <- list()
 
 for(i in 1:nrow(dt2)){
@@ -312,7 +312,7 @@ for(i in 1:nrow(dt2)){
 }
 save(SNP_top10_EA,file='code21.SNP_top10_EA.Rdata')
 
-## 看看这top10的SNP哪几个在所有的数据库中都存在
+
 #load('code21.SNP_top10_EA.Rdata')
 SNP_top10_uni <- lapply(SNP_top10_EA,function(x) x$rsid)
 SNP_top10_uni <- unique(unlist(SNP_top10_uni)) #9780
@@ -333,7 +333,7 @@ for(i in 1:nrow(dt2)){
 }
 save(SNP_top10dt_EA,file='code21.SNP_top10dt_EA.Rdata')
 
-## 加一步，看看这top10的SNP哪几个在结局的数据库中都存在
+
 #load('code21.SNP_top10dt_EA.Rdata')
 outdt1 <- read.csv('dt_out_stroke.csv')
 unique(outdt1$ancestry)
@@ -357,7 +357,7 @@ for(i in 1:nrow(outdt1)){
 save(SNP_top10dt_EA_out,file='code21.SNP_top10dt_EA_stroke.Rdata')
 
 
-## 统计频率，看看哪些SNP在所有数据库中都有
+
 #load('code21.SNP_top10dt_EA_stroke.Rdata')
 
 snpal1 <- lapply(SNP_top10dt_EA_out, function(x) unique(x$rsid))
@@ -410,7 +410,7 @@ SA.loc <- dt1$ancestry=='European'
 dt2 <- dt1[SA.loc,]
 summary(dt2$snp_num)
 
-## 899个性状找top10个的SNP
+
 SNP_top10_EUR <- list()
 
 for(i in 1:nrow(dt2)){
@@ -433,7 +433,7 @@ for(i in 1:nrow(dt2)){
 }
 save(SNP_top10_EUR,file='code21.SNP_top10_EUR.Rdata')
 
-## 看看这top10的SNP哪几个在所有的数据库中都存在
+
 #load('code21.SNP_top10_EUR.Rdata')
 SNP_top10_EUR <- lapply(SNP_top10_EUR,function(x) if(nrow(x)>50){x <- x[1:50,]}else{x})
 SNP_top10_uni <- lapply(SNP_top10_EUR,function(x) x$rsid)
@@ -455,7 +455,7 @@ for(i in 1:nrow(dt2)){
 }
 save(SNP_top10dt_EUR,file='code21.SNP_top10dt_EUR.Rdata')
 
-## 加一步，看看这top10的SNP哪几个在结局的数据库中都存在
+
 #load('code21.SNP_top10dt_EA.Rdata')
 outdt1 <- read.csv('dt_out_stroke.csv')
 unique(outdt1$ancestry)
@@ -479,7 +479,7 @@ for(i in 1:nrow(outdt1)){
 save(SNP_top10dt_EUR_out,file='code21.SNP_top10dt_EUR_stroke.Rdata')
 
 
-## 统计频率，看看哪些SNP在所有数据库中都有
+
 #load('code21.SNP_top10dt_EUR_stroke.Rdata')
 
 snpal1 <- lapply(SNP_top10dt_EUR_out, function(x) unique(x$rsid))
@@ -543,5 +543,6 @@ uni_trait <- intersect(uni_trait,dt_EA$reportedTrait)
 uni_trait <- intersect(uni_trait,dt_EUR$reportedTrait) #552个性状
 
 save(uni_trait,file='code21.uni_trait.Rdata')
+
 
 
