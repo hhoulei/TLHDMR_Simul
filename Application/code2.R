@@ -45,7 +45,7 @@ snp_num <- lapply(SNP_sig, function(x) nrow(x))
 snp_num <- unlist(snp_num)
 dt1$snp_num <- snp_num
 
-# #### 每个种族分开找SNP，每个性状只选top snp ######
+
 ################# South Asian ##########################
 SA.loc <- dt1$ancestry=='South Asian'
 dt2 <- dt1[SA.loc,]
@@ -79,12 +79,12 @@ snp_uni <- lapply(SNP_topdt_SA, function(x) unique(x$rsid))
 snp_uni <- unlist(snp_uni)
 snp_uni <- table(snp_uni)
 snp_uni <- names(snp_uni)[snp_uni==899] ##614
-### 只有614个SNP在所有的数据库中存在
+
 
 dt2$SNP_TOP_allexist <- ifelse(dt2$SNP_TOP %in% snp_uni,1,0)
 sum(dt2$SNP_TOP_allexist) #650
 
-## 剩余 899-650=249个性状找top10个的SNP
+
 # SNP_top10_SA <- list()
 # 
 # for(i in 1:nrow(dt2)){
@@ -104,7 +104,7 @@ sum(dt2$SNP_TOP_allexist) #650
 # }
 # save(SNP_top10_SA,file='code2.SNP_top10_SA.Rdata')
 
-## 看看这top10的SNP哪几个在所有的数据库中都存在
+
 load('code2.SNP_top10_SA.Rdata')
 SNP_top10_uni <- lapply(SNP_top10_SA,function(x) x$rsid)
 SNP_top10_uni <- unique(unlist(SNP_top10_uni)) #2418
@@ -127,7 +127,7 @@ SNP_top10_uni <- unique(unlist(SNP_top10_uni)) #2418
 # }
 # save(SNP_top10dt_SA,file='code2.SNP_top10dt_SA.Rdata')
 
-## 加一步，看看这top10的SNP哪几个在结局的数据库中都存在
+
 load('code2.SNP_top10dt_SA.Rdata')
 outdt1 <- read.csv('dt_out_stroke.csv')
 unique(outdt1$ancestry)
@@ -175,7 +175,7 @@ for(i in 1:nrow(outdt2)){
 save(SNP_top10dt_SA_out,file='code2.SNP_top10dt_SA_out.Rdata')
 
 
-## 统计频率，看看哪些SNP在所有数据库中都有
+
 load('code2.SNP_top10dt_SA_out.Rdata')
 SNP_top10dt_SA <- SNP_top10dt_SA_out
 
@@ -261,12 +261,12 @@ snp_uni <- lapply(SNP_topdt_AFR, function(x) unique(x$rsid))
 snp_uni <- unlist(snp_uni)
 snp_uni <- table(snp_uni)
 snp_uni <- names(snp_uni)[snp_uni==899] ##634
-### 只有634个SNP在所有的数据库中存在
+
 
 dt3$SNP_TOP_allexist <- ifelse(dt3$SNP_TOP %in% snp_uni,1,0)
 sum(dt3$SNP_TOP_allexist) #651
 
-## 剩余 899-651=248个性状找top10个的SNP
+
 # SNP_top10_AFR <- list()
 # 
 # for(i in 1:nrow(dt3)){
@@ -286,7 +286,7 @@ sum(dt3$SNP_TOP_allexist) #651
 # }
 # save(SNP_top10_AFR,file='code2.SNP_top10_AFR.Rdata')
 
-## 看看这top10的SNP哪几个在所有的数据库中都存在
+
 load('code2.SNP_top10_AFR.Rdata')
 SNP_top10_uni <- lapply(SNP_top10_AFR,function(x) x$rsid)
 SNP_top10_uni <- unique(unlist(SNP_top10_uni)) #2430
@@ -307,7 +307,7 @@ SNP_top10_uni <- unique(unlist(SNP_top10_uni)) #2430
 # }
 # save(SNP_top10dt_AFR,file='code2.SNP_top10dt_AFR.Rdata')
 
-## 统计频率，看看哪些SNP在所有数据库中都有
+
 load('code2.SNP_top10dt_AFR.Rdata')
 
 snpal1 <- lapply(SNP_top10dt_AFR, function(x) unique(x$rsid))
@@ -394,7 +394,7 @@ snp_uni <- lapply(SNP_topdt_EA, function(x) unique(x$rsid))
 snp_uni <- unlist(snp_uni)
 snp_uni <- table(snp_uni)
 snp_uni <- names(snp_uni)[snp_uni==899] ##607
-### 只有607个SNP在所有的数据库中存在
+
 
 dt4$SNP_TOP_allexist <- ifelse(dt4$SNP_TOP %in% snp_uni,1,0)
 sum(dt4$SNP_TOP_allexist) #633
@@ -419,7 +419,7 @@ sum(dt4$SNP_TOP_allexist) #633
 # }
 # save(SNP_top10_EA,file='code2.SNP_top10_EA.Rdata')
 
-## 看看这top10的SNP哪几个在所有的数据库中都存在
+
 load('code2.SNP_top10_EA.Rdata')
 SNP_top10_uni <- lapply(SNP_top10_EA,function(x) x$rsid)
 SNP_top10_uni <- unique(unlist(SNP_top10_uni)) #2522
@@ -440,7 +440,7 @@ SNP_top10_uni <- unique(unlist(SNP_top10_uni)) #2522
 # }
 # save(SNP_top10dt_EA,file='code2.SNP_top10dt_EA.Rdata')
 
-## 统计频率，看看哪些SNP在所有数据库中都有
+
 load('code2.SNP_top10dt_EA.Rdata')
 
 snpal1 <- lapply(SNP_top10dt_EA, function(x) unique(x$rsid))
@@ -526,12 +526,12 @@ snp_uni <- lapply(SNP_topdt_EUR, function(x) unique(x$rsid))
 snp_uni <- unlist(snp_uni)
 snp_uni <- table(snp_uni)
 snp_uni <- names(snp_uni)[snp_uni==899] ##646
-### 只有646个SNP在所有的数据库中存在
+
 
 dt5$SNP_TOP_allexist <- ifelse(dt5$SNP_TOP %in% snp_uni,1,0)
 sum(dt5$SNP_TOP_allexist) #887
 
-## 剩余 899-887=12个性状找top10个的SNP
+
 # SNP_top10_EUR <- list()
 # 
 # for(i in 1:nrow(dt5)){
@@ -551,7 +551,7 @@ sum(dt5$SNP_TOP_allexist) #887
 # }
 # save(SNP_top10_EUR,file='code2.SNP_top10_EUR.Rdata')
 
-## 看看这top10的SNP哪几个在所有的数据库中都存在
+
 load('code2.SNP_top10_EUR.Rdata')
 SNP_top10_uni <- lapply(SNP_top10_EUR,function(x) x$rsid)
 SNP_top10_uni <- unique(unlist(SNP_top10_uni)) #119
@@ -572,7 +572,7 @@ SNP_top10_uni <- unique(unlist(SNP_top10_uni)) #119
 # }
 # save(SNP_top10dt_EUR,file='code2.SNP_top10dt_EUR.Rdata')
 
-## 统计频率，看看哪些SNP在所有数据库中都有
+
 load('code2.SNP_top10dt_EUR.Rdata')
 
 snpal1 <- lapply(SNP_top10dt_EUR, function(x) unique(x$rsid))
@@ -682,4 +682,5 @@ trait_name <- dt2$reportedTrait
 save(dt2,dt3,dt4,dt5,trait_name,
      SNP_dtfinal_SA,SNP_dtfinal_AFR,SNP_dtfinal_EA,SNP_dtfinal_EUR,
      file='code2.final870.Rdata')
+
 
